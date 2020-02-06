@@ -1,0 +1,39 @@
+.gateway{
+    display: flex;
+    align-items: center;
+    height:100vh;
+    .container{
+        display:flex;
+        align-items: center;
+    }
+    .gateway-infor{
+        margin-right:120px;
+        .gate-name{
+            font-size:30px;
+            color:#313b57;
+            font-weight:bold;
+            margin-bottom:90px;
+        }
+    }
+    .gate-info{
+        margin-bottom: 30px;
+        & > small{
+            display:block;
+            font-weight:500;
+            color:#395298;
+            font-size:22px;
+        }
+        .gate-spec{
+            font-weight:bold;
+            font-size:20px;
+            margin-bottom:10px;
+            span{
+                color:#1348df;
+            }
+            small{
+                color:#94aef8;
+            }
+    
+        }
+    }
+}

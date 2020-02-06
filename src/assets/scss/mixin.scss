@@ -1,0 +1,96 @@
+@charset "UTF-8";
+/*******************************
+Default Mixin
+*******************************/
+/*----------------------
+Clearfix
+----------------------*/
+@mixin clearfix {
+  zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/*----------------------
+フォントサイズ「rem」の使用
+----------------------*/
+@mixin f-size($size: $baseFont) {
+  font-size: $size + px;
+  font-size: ($size / 10) + rem;
+}
+
+/*******************************
+Customized Mixin
+*******************************/
+@mixin wrapper($width: $bpPcs) {
+  max-width: $width;
+  margin-left: auto;
+  margin-right: auto;
+  @include breakpoint($baseWidth) {
+    max-width: 92.1875%;
+  }
+}
+
+@mixin breakpoint($width: $bpSp) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin bpTb {
+  @media screen and (max-width: $bpTb) {
+    @content;
+  }
+}
+
+@mixin bpSp {
+  @media screen and (max-width: $bpSp) {
+    @content;
+  }
+}
+
+@mixin bpSps {
+  @media screen and (max-width: $bpSps) {
+    @content;
+  }
+}
+
+@mixin iconFont() {
+  font-family: "FontAwesome";
+  font-weight: 500;
+  line-height: 1;
+}
+
+@mixin center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin centerX {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin centerY {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin font($font){
+  @if $font == mont {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+  @elseif $font == opens2{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-style:italic;
+  }
+}
