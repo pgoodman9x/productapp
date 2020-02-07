@@ -1,15 +1,17 @@
 import * as types from '../constants/ActionTypes';
 
-var initialState = {
+var initialUserState = {
     isLogin: false,
-    user: {}
+    user: {},
+    showModal: false
 }
 
-const myReducer = (state = initialState, action) => {
+const myReducer = (state = initialUserState, action) => {
     if(action.type === types.LOGIN_STATE){
         return {
             isLogin: action.state,
-            user: action.user
+            user: action.user,
+            showModal: action.showModal ? action.showModal : false
         };
     }
     return state;

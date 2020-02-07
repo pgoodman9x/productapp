@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 
-
 export const useLinkScript = (url, bool=true) => {
     useEffect(() => {
         let text = (bool ? "link" : "script");
@@ -22,7 +21,7 @@ export const useLinkScript = (url, bool=true) => {
                 document.head.removeChild(finalElement);
             }
         }
-    }, [url]);
+    }, [url, bool]);
 }
 
 export default useLinkScript;

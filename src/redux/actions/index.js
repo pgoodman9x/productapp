@@ -13,10 +13,18 @@ export const toggleUserControl = (onShow) => {
     }
 }
 
-export const loginState = (state, user) => {
+export const loginState = (state, user, showModal) => {
     return {
         type: types.LOGIN_STATE,
         state,
-        user
+        user,
+        showModal
+    }
+}
+
+export const activeMenu = (position) => {
+    return {
+        type: types.ACTIVE_MENU,
+        position
     }
 }

@@ -223,6 +223,18 @@
   //body
   &-body{
     background:var(--grey);
-    min-height:100vh;
+    min-height:calc(100vh - 70px);
+    padding-top:70px;
+    .dashboard-body--content{
+      padding:30px;
+    }
+    .body-component{
+      .title{
+        font-size:22px;
+        font-weight: bold;
+        color:var(--textColor02);
+        margin-bottom: 25px;
+      }
+    }
   }
 }

@@ -1,10 +1,9 @@
 import * as types from '../constants/ActionTypes';
-let initialState = false;
+let initalSBState = false;
 
-const myReducer = (state = initialState, action) => {
+const myReducer = (state = initalSBState, action) => {
     if(action.type === types.TOGGLE_SIDEBAR){
-        state = !state;
-        return state;
+        return !state;
     }
     return state;
 }
