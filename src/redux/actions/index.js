@@ -25,6 +25,13 @@ export const loginState = (state, user, showModal) => {
 export const activeMenu = (position) => {
     return {
         type: types.ACTIVE_MENU,
-        position
+        position,
+    }
+}
+
+export const toggleDialog = () => {
+    return {
+        type: types.TOGGLE_DIALOG,
+
     }
 }

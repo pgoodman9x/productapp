@@ -1,9 +1,13 @@
 import * as types from '../constants/ActionTypes';
-const initialPosition = 0;
+const initialMenu = {
+    position: 0,
+};
 
-const myReducer = (state=initialPosition, action) => {
+const myReducer = (state=initialMenu, action) => {
     if(action.type === types.ACTIVE_MENU){
-        return action.position;
+        return {
+            position: action.position,
+        };
     }
     return state;
 }

@@ -13,9 +13,8 @@ function App() {
 		<div className="App">
 			<Router>
 				<Switch>
-					<Route exact path="/">
-						<Dashboard />
-					</Route>
+					<Dashboard />
+
 					<Route path="/admin">
 						<Gateway role="Quản trị viên" control={true} />
 					</Route>

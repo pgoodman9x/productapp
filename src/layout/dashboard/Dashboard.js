@@ -10,19 +10,20 @@ import './Dashboard.scss'
 import { useSelector } from 'react-redux';
 import UserModal from '../usermodal/UserModal';
 import Table from '../../components/table/Table';
+import { Route } from 'react-router-dom';
+import Dialog from '../../components/dialog/Dialog';
+
 
 function Dashboard() {
     const sideBarState = useSelector((state) => state.sideBarState);
     const user = useSelector(state => state.user);
-
     const userLoginState = user.isLogin;
     const userModalState = user.showModal;
 
     let className = sideBarState ? "dashboard hide-sidebar" : "dashboard";
 
     const tableHeadings = ["ID", "Sản phẩm", "Giá", ""];
-
-    //fake data
+    
     const productData = [
         {
             id: 1,
@@ -46,34 +47,26 @@ function Dashboard() {
             <Sidebar logoTitle="TRANG CHỦ" path="/" />
             <Wrapper>
                 <Header />
-                <Body activeContent={0}>
+                <Body>
                     <BodyContent>
-                        <BodyComponent title="Danh mục sản phẩm">
-                            <Table headings={tableHeadings} data={productData} />
-                        </BodyComponent>
+                        <Route exact path="/">
+                            <BodyComponent title="Danh mục sản phẩm">
+                                <Table headings={tableHeadings} data={productData} tableStyle="control"/>
+                            </BodyComponent>
+                        </Route>
+
+                        <Route exact path="/test">
+                        </Route>
                     </BodyContent>
 
                     <Footer copyRightText="© 2019" />
                 </Body>
             </Wrapper>
-            {!userLoginState && userModalState ?  <UserModal /> : undefined}
-           
+            {!userLoginState && userModalState ? <UserModal /> : undefined}
+       {/*      <Dialog /> */}
+
         </div>
     )
 }
-
-/* 
-<table>
-    <tr>
-        <th></th>
-        <th></th>
-    </tr>
-
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-</table> */
 
 export default Dashboard

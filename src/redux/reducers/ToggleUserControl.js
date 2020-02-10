@@ -1,9 +1,13 @@
 import * as types from '../constants/ActionTypes';
-let initialUSState = false;
+const initialUSState = {
+    onShow: false
+};
 
 const myReducer = (state = initialUSState, action) => {
     if(action.type === types.TOGGLE_USERCONTROL){
-        return action.onShow;
+        return {
+            onShow: action.onShow
+        };
     }
     return state;
 }

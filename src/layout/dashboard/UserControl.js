@@ -1,32 +1,12 @@
-import React, { useRef, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleUserControl } from '../../redux/actions/index';
-
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 function UserControl({children}) {
-    const userControlState = useSelector(state => state.userControlState);
-    const dispatch = useDispatch();
-
-    const ref = useRef(null);
-    useEffect(() => {
-        const current = ref.current;
-        const handleClickOut = (event) => {
-            if(!current.contains(event.target)){
-                dispatch(toggleUserControl(false));
-            }
-        }
-        if(current){
-            document.addEventListener("mousedown", handleClickOut);
-            return () => {
-                document.removeEventListener("mousedown", handleClickOut);
-            }
-        }
-    })
-
+    const userControlState = useSelector(state => state.userControlState.onShow);
     let style = userControlState ? {display: "block"} : {display: "none"};
 
     return (
-        <ul className="dashboard-usercontrol" ref={ref} style={style}>
+        <ul className="dashboard-usercontrol" style={style}>
             {children}
         </ul>
     )

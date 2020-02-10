@@ -4,6 +4,8 @@ import SidebarChildComponent from './SidebarChildComponent'
 import SidebarMenu from './SidebarMenu'
 import SquareIcon from '../../assets/images/ico_square.png';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { activeMenu } from '../../redux/actions/index';
 
 function Sidebar({ logoTitle, path }) {
     const menuList = [
@@ -19,12 +21,15 @@ function Sidebar({ logoTitle, path }) {
             title: 'Test',
             iconPath: SquareIcon,
             position: 1,
-            path: ''
+            path: 'test'
         }
     ]
+
+    const dispatch = useDispatch();
+
     return (
         <div className="sidebar">
-            <Link to={path}>
+            <Link to={path} onClick={() => dispatch(activeMenu(0))}>
                 <h1 className="sidebar-ttl">{logoTitle}</h1>
             </Link>
 

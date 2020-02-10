@@ -1,12 +1,9 @@
 import React from 'react'
 import SidebarMenuLink from './SidebarMenuLink';
 import { useSelector } from 'react-redux';
-/* import { activeMenu } from '../../redux/actions/index'; */
 
-function SidebarMenu({list}) {
-    //Test
-    
-    const menuPosition = useSelector(state => state.menuPosition);
+function SidebarMenu({list}) {  
+    const menuPosition = useSelector(state => state.menu.position);
 
     return (
         <ul className="sidebar-menu">
